@@ -11,9 +11,6 @@ import UIKit
 
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate{
-//    var globalUrlArray = [String]()
-    
-//    var activeRow = 0
     
     @IBOutlet weak var table: UITableView!
     
@@ -45,7 +42,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 do{
                     let jsonResults = try JSONSerialization.jsonObject(with: urlContent, options: .allowFragments) as! NSArray
 
-//                    print(jsonResults)
                     for jsonResult in jsonResults.reversed(){
                         if let jsonDict = jsonResult as? NSDictionary{
                             
@@ -81,6 +77,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return artistArray.count
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! TableViewCell
         cell.title.text = String(titleArray[indexPath.row])
         cell.artist.text = artistArray[indexPath.row]
@@ -103,9 +100,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             
             let index = table.indexPathForSelectedRow
-            let indexNumber = index?.row //0,1,2,3
-
-            
+            let indexNumber = index?.row
+        
             if segue.identifier == "webSegue" {
                 let destination = segue.destination as! secondViewController
                 

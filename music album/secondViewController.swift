@@ -11,9 +11,6 @@ import UIKit
 
 class secondViewController: UIViewController {
     
-    
-//    var activeRow:Int?
-    
     @IBOutlet weak var webView: UIWebView!
     @IBAction func back(_ sender: Any) {
         dismiss(animated: true,completion: nil)
@@ -32,7 +29,7 @@ class secondViewController: UIViewController {
             
             let urlRequest = URLRequest(url: url!)
             
-            webView.loadRequest(urlRequest)            
+            webView.loadRequest(urlRequest)
         }
         
     }
