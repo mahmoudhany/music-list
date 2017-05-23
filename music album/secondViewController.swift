@@ -32,7 +32,7 @@ class secondViewController: UIViewController {
             
             let urlRequest = URLRequest(url: url!)
             
-            webView.loadRequest(urlRequest)
+            
             
         }
         
